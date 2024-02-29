@@ -8,16 +8,12 @@ func binarySearchSortedArr(arr []int, val int) bool{
     low := 0
     high := len(arr)
    
-    canContinue := true
-    for canContinue{
-    
+    for low < high{
         // get mid      
         mid := int(math.Round(float64(low + ((high - low) / 2))))
-    
+        // check if val found in arr
         if val == arr[mid]{
-            // val found in arr
             result = true
-            canContinue = false
             break
         }else if val > arr[mid]{
             // go right
@@ -25,11 +21,6 @@ func binarySearchSortedArr(arr []int, val int) bool{
         }else{
             // go left
             high = mid
-        }
-        
-        // condition
-        if low >= high {
-            canContinue = false
         }
     }
     return result 
